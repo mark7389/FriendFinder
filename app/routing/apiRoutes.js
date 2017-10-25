@@ -8,7 +8,7 @@ function findFriend(obj, func){
 	
 	var myFriend =[];
 	var previousScores = [];
-
+	
 	for(var i = 0; i<friendsData.length ; i++){
 
 		var currentScore = 0;
@@ -50,7 +50,7 @@ module.exports = function(app){
 		findFriend(req.body, function(myFriend){
 
 			res.json(myFriend);
-			if(myFriend[myFriend.length-1].photo !== friendsData[friendsData.length-1].photo){
+			if(myFriend[myFriend.length-1].photo !== req.body.photo){
 
 				friendsData.push(req.body);
 

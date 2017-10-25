@@ -14,6 +14,17 @@
 
 			width:30%;
 		}
+		#friendImg{
+	
+			width: 200px;
+			height: 250px;
+		}
+		.modal{
+
+			
+			font-weight: bold;
+ 
+		}
 
 </style>
 
@@ -144,19 +155,18 @@
    				 <div class="modal-content">
     				  <div class="modal-header">
        					 <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-       					 <h2 class="modal-title">Friend Finder Results</h2>
+       					 <h2 class="modal-title" id="results" style="color:#498080">Friend Finder Results</h2>
       				</div>
-     				 <div class="modal-body text-center">
+     				 <div class="modal-body text-center" style="color:#ffffff; background:#498080">
         					
-        					<h4 id="%Match">test</h4>
-        					<div id="friendImg">test</div>
-        					<h4 id="friendName">test</h4>
+        					<div id="friendImg"></div>
+        					<h3 id="friendName"></h3>
 
 
       				</div>
       				<div class="modal-footer">
-        				<button type="button" class="btn btn-danger" data-dismiss="modal">Not Interested</button>
-       					 <button type="button" class="btn btn-primary">Next Match</button>
+        				<button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+       					 <button type="button" class="btn btn-primary" id="next">Next Match</button>
      				</div>
    			 	</div><!-- /.modal-content -->
   			</div><!-- /.modal-dialog -->
@@ -164,13 +174,13 @@
 
 		<footer class="col-lg-8 col-md-12 col-sm-12">
 			
-				<p><a href="/api/friends">API Friend List</a> | <a href="">Github Repo</a>
+				<p><a href="/api/friends">API Friend List</a> | <a href="https://github.com/mark7389/FriendFinder">Github Repo</a>
 				</p>
 			
 		</footer>
 	</div>
 
-	<script type="text/javascript" src="app.js"></script>
+	<script type="text/javascript" src="./app.js"></script>
 	
 </body>
 </html>

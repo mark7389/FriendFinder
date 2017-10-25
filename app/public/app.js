@@ -16,14 +16,40 @@ $("#search").on("click", function(e){
 			scores: arr,
 		}
 
-		console.log(obj);//
+		console.log(obj);
 		var currentURL = window.location.origin;
-		//post
+		$.post(currentURL+"/api/friends", $.param(obj,true), function(data){
+			var ctr = data.length-1;
+			$("#results").append(" "+data.length);
+			displayResults(obj, data, ctr);
+			$("#next").on("click", function(){
+
+				ctr--;
+				displayResults(obj, data, ctr);
+
+			});
+			$("#myModal").modal("show");
+			
+
+		});
 		
 	}
-	$("#myModal").modal("show");
+	
 
 });
+function displayResults(obj, data, c){
+
+	if(c < 0){
+
+		$("#results").html("<p>Those were all of your matches</p>");
+		
+	}else{
+		
+		$("#friendImg").css({background: "url("+data[c].possible.photo+")","background-size": "cover", margin: "auto", "box-shadow": "10px"});
+		$("#friendName").html(data[c].possible.name.toUpperCase());
+
+	}
+}
 
 function findVal(){
 
@@ -39,4 +65,5 @@ function findVal(){
 
 }
 
+$("select").on("keyup", findVal);
 $(document).on("click", "select", findVal);
