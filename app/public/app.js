@@ -20,7 +20,7 @@ $("#search").on("click", function(e){
 		var currentURL = window.location.origin;
 		$.post(currentURL+"/api/friends", $.param(obj,true), function(data){
 			var ctr = data.length-1;
-			$("#results").append(" "+data.length);
+			$("#results").html("Friend Finder Results: "+data.length);
 			displayResults(obj, data, ctr);
 			$("#next").on("click", function(){
 
@@ -28,6 +28,7 @@ $("#search").on("click", function(e){
 				displayResults(obj, data, ctr);
 
 			});
+			
 			$("#myModal").modal("show");
 			
 
@@ -44,7 +45,7 @@ function displayResults(obj, data, c){
 		$("#results").html("<p>Those were all of your matches</p>");
 		
 	}else{
-		
+		$("#diff").html("Response difference: "+data[c].difference);
 		$("#friendImg").css({background: "url("+data[c].possible.photo+")","background-size": "cover", margin: "auto", "box-shadow": "10px"});
 		$("#friendName").html(data[c].possible.name.toUpperCase());
 
